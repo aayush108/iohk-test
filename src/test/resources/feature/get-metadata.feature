@@ -1,4 +1,4 @@
-Feature: To test the get metadata request feature of the metadata API service
+Feature: To test the get metadata request functionality of the metadata API service
 
   Scenario Outline: User is able to retrieve the the metadata from the server with valid subjects
 
