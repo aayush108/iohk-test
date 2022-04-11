@@ -6,6 +6,12 @@ name: Nightly test build
 on:
   schedule:
   - cron: "0 0 * * *"
+  
+  workflow_dispatch:
+   inputs:
+      git-ref:
+        description: manual trigger    
+        required: false
 
 jobs:
   run-test:
