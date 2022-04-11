@@ -5,7 +5,7 @@ name: Nightly test build
 
 on:
   schedule:
-  - cron: "*/5 * * * *"
+  - cron: "0 0 * * *"
 
 jobs:
   run-test:
