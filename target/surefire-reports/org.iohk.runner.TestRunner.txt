@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: org.iohk.runner.TestRunner
--------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.321 s - in org.iohk.runner.TestRunner
