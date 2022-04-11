@@ -1,0 +1,10 @@
+{
+  "sequenceNumber": 0,
+  "value": "HappyCoin",
+  "signatures": [
+    {
+      "signature": "10c0761f6992768208644451cfd8bf77c1a09f8346a2381c22d87107aef107dee3db29d826b7332f0181546d30ad49c6d3338c70ce7aa082ae2dd54e78e9cf01",
+      "publicKey": "db2c42a7c5b70d7e635b95c5864439f22ccd6639cc7bc128a88a804f149a4448"
+    }
+  ]
+}
