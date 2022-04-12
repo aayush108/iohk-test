@@ -1,12 +1,10 @@
 Feature: To test the get metadata request functionality of the metadata API service
 
-  Scenario Outline: User is able to retrieve the the metadata from the server with valid subjects
-
+  Scenario Outline: User is able to retrieve the metadata from the server with valid subjects
     Given user has the correct <subject> values
     When the user makes a get request to the metadata service
     Then the status code from api is 200
     And he is able to get correct <metadata> for the provided values
-
 
     Examples:
       | subject                                                                          | metadata    |
@@ -14,7 +12,6 @@ Feature: To test the get metadata request functionality of the metadata API serv
       | "2048c7e09308f9138cef8f1a81733b72e601d016eea5eef759ff2933416d617a696e67436f696e" | "metadata2" |
 
 Scenario: User gets an error message with incorrect subject value
-
   Given user has the incorrect subject values
   When the user makes a get request to the metadata service with incorrect value
   Then he receives an error message
