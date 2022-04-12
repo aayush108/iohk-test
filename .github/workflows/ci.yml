@@ -33,10 +33,9 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: Build and push docker image
-      uses: mr-smithers-excellent/docker-build-push@v5
+      uses: mr-smithers-excellent/docker-build-push@v4
       with:
-        image: aayush108/docker
-        tags: v1, latest
+        image: aayush108/docker       
         registry: docker.io
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }} 
