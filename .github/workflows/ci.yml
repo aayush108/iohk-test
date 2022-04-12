@@ -33,7 +33,7 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: Build and push docker image
-    - uses: mr-smithers-excellent/docker-build-push@v5
+      uses: mr-smithers-excellent/docker-build-push@v5
       with:
         image: aayush108/docker
         registry: docker.io
