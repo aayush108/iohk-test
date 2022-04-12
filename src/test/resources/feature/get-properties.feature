@@ -1,10 +1,10 @@
 Feature: To test the get properties request feature of the metadata API service
 
-  Scenario Outline: User is able to retrieve the the properties from the server with valid subjects
+  Scenario Outline: User is able to retrieve the properties from the server with valid subjects
 
     Given user has the correct <subject> values
     When the user makes a get properties request to the metadata service
-    Then the status code from teh service is 200
+    Then the status code from the service is 200
     And he is able to receive correct <property> for the given subject
 
     Examples:

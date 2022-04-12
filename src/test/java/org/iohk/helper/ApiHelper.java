@@ -40,5 +40,15 @@ public class ApiHelper {
                 .extract().response();
     }
 
+    public static Response postQuery(String body) {
+        RestAssured.requestSpecification = buildSpecification();
+        return given()
+                .body(body)
+                .when()
+                .post("/metadata/query")
+                .then().log().all()
+                .extract().response();
+    }
+
 
 }

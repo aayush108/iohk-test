@@ -19,8 +19,8 @@ import static java.nio.file.Paths.get;
 
 public class StepDefinitions {
 
-    Response metadataResponse, propertiesResponse;
-    String subject;
+    Response metadataResponse, propertiesResponse, postResponse;
+    String subject,body;
 
     @Given("user has the correct {string} values")
     public void userHasTheCorrectSubjectValues(String subject) {
@@ -77,8 +77,44 @@ public class StepDefinitions {
         Assert.assertEquals("Requested subject 'incorrectSubject' not found",propertiesResponse.getBody().asString());
     }
 
-    @Then("the status code from teh service is {int}")
+    @Then("the status code from the service is {int}")
     public void theStatusCodeFromTehServiceIs(int statusCode) {
         Assert.assertEquals(statusCode,propertiesResponse.statusCode());
+    }
+
+    @Given("user has the correct subject data")
+    public void userHasTheCorrectSubjectData() throws IOException {
+        body = new String(readAllBytes(get("src/test/resources/requestBody/subject1.json")));
+    }
+
+    @When("the user makes a post query request the metadata service")
+    public void theUserMakesAPostQueryRequestTheMetadataService() {
+      postResponse = ApiHelper.postQuery(body);
+    }
+
+    @And("the response from the service is a empty subject array")
+    public void theResponseFromTheServiceIsAEmptySubjectArray() {
+        Assert.assertEquals("{\"subjects\":[]}",postResponse.getBody().asString());
+    }
+
+    @Given("user has the correct subject and properties")
+    public void userHasTheCorrectSubjectAndProperties() throws IOException {
+        body = new String(readAllBytes(get("src/test/resources/requestBody/subject2.json")));
+    }
+
+    @Given("user has invalid request body for post query")
+    public void userHasInvalidRequestBodyForPostQuery() throws IOException {
+        body = new String(readAllBytes(get("src/test/resources/requestBody/invalidSubject.json")));
+    }
+
+    @Then("the user receives an error {string}")
+    public void theUserReceivesAnError(String error) {
+        Assert.assertEquals("<h1>"+error+"</h1>",postResponse.getBody().asString());
+    }
+
+    @Then("the status code from metadata service is {int}")
+    public void theStatusCodeFromMetadataServiceIs(int status) {
+        Assert.assertEquals(status,postResponse.statusCode());
+
     }
 }
